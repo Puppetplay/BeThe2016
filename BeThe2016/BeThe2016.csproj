@@ -122,6 +122,12 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeThe2016.Worker\BeThe2016.Worker.csproj">
+      <Project>{88fb2f70-1d9c-4b0b-83c8-73b4d10443ce}</Project>
+      <Name>BeThe2016.Worker</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

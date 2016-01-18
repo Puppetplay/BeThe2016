@@ -23,5 +23,10 @@ namespace BeThe2016.Util
                 default: return teamName;
             }
         }
+
+        public static String[] Teams =
+            {   "삼성", "NC", "두산","넥센","한화",
+                "KIA","SK", "롯데","LG","KT"
+        };
     }
 }
