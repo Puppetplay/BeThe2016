@@ -35,7 +35,7 @@ namespace BeThe2016.Crawler.Parser
 
         #region Public Functions
 
-        public List<Player_W> Parse(String html)
+        public List<Player_W> Parse(String html, String team)
         {
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(html);
@@ -48,6 +48,7 @@ namespace BeThe2016.Crawler.Parser
                 Player_W player = new Player_W
                 {
                     Href = items[1].SelectSingleNode("a").GetAttributeValue("href", ""),
+                    Team = team
                 };
                 players.Add(player);
             }

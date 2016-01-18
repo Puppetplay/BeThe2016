@@ -32,6 +32,7 @@ namespace BeThe2016.Crawler
                 if (IsExistElement("cphContainer_cphContents_ucPager_btnNext"))
                 {
                     ClickButton("cphContainer_cphContents_ucPager_btnLast");
+                    Sleep(2000);
                 }
                 else
                 {

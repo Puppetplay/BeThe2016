@@ -16,7 +16,8 @@ namespace BeThe2016
         private void button_Click(object sender, RoutedEventArgs e)
         {
             var manager = new Manager();
-            manager.SelectPlayer_W();
+            //manager.SelectPlayer_W();
+            manager.SelectPlayer();
         }
     }
 }

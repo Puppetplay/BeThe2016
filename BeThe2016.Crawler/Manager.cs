@@ -4,6 +4,7 @@ using System.Drawing;
 using OpenQA.Selenium.Chrome;
 using System.Collections.Generic;
 using BeThe2016.Items;
+using BeThe2016.Crawler.Crawler;
 
 namespace BeThe2016.Crawler
 {
@@ -34,7 +35,7 @@ namespace BeThe2016.Crawler
                         String html = crawler.GetHTML();
                         if (html != null)
                         {
-                            List<Player_W> ps = Parser.ParserPlayer_W.Instance.Parse(html);
+                            List<Player_W> ps = Parser.ParserPlayer_W.Instance.Parse(html, teamInitial);
                             players = players.Concat(ps).ToList();
                         }
                     }
@@ -52,6 +53,20 @@ namespace BeThe2016.Crawler
             }
         }
 
+        // Player 정보 얻기
+        public Player GetPlayer(Player_W player_W)
+        {
+            InitCromeDriver();
+            CrawlerPlayer crawler = new CrawlerPlayer(chromeDriver);
+            crawler.Init(player_W.Href);
+
+            String html = crawler.GetHTML();
+
+            String[] items = player_W.Href.Split(new String[] { "=" }, StringSplitOptions.RemoveEmptyEntries);
+            Int32 playerId = Convert.ToInt32(items[items.Length - 1]);
+            var player = Parser.ParserPlayer.Instance.Parse(html, player_W.Team, playerId);
+            return player;
+        }
 
         public void Dispose()
         {
@@ -79,7 +94,7 @@ namespace BeThe2016.Crawler
                 var chromeOptions = new ChromeOptions();
                 chromeDriverService.HideCommandPromptWindow = true;
                 chromeDriver = new ChromeDriver(chromeDriverService, chromeOptions);
-                chromeDriver.Manage().Window.Size = new Size(0, 0);
+                chromeDriver.Manage().Window.Size = new Size(500, 800);
             }
         }
 

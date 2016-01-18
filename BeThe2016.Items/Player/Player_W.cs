@@ -15,7 +15,7 @@ namespace BeThe2016.Items
         public override Int64 Id { get; set; }
 
         [Column(CanBeNull = false)]
-        public Int32 PlayerId { get; set; }
+        public String Team { get; set; }
 
         [Column(CanBeNull = false)]
         public String Href { get; set; }
