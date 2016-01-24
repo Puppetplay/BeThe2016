@@ -24,7 +24,7 @@ namespace BeThe2016.Worker
             }
         }
 
-        // 플레이어 얻어오기
+        // 플레이어 얻어오기1
         public void SelectPlayer()
         {
             Crawler.Manager mgr = new Crawler.Manager();
