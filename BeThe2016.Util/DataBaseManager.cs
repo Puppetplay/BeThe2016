@@ -13,9 +13,13 @@ namespace BeThe2016.Util
     {
         #region ♥ Property & Values
 
-        private readonly static String DATA_SOURCE = "61.73.185.162,3915";
+        //private readonly static String DATA_SOURCE = "61.73.185.162,3915";
+        private readonly static String DATA_SOURCE = "MIN-PC";
+
         private readonly static String USER_ID = "sa";
-        private readonly static String PASSWORD = "@1014vkfl";
+
+        //private readonly static String PASSWORD = "@1014vkfl";
+        private readonly static String PASSWORD = "1";
         private readonly static String CATALOG = "BETHE2016";
 
         public DataContext DataContext { get; set; }

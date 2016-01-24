@@ -25,6 +25,11 @@ namespace BeThe2016.Crawler
             {
                 InitCromeDriver();
                 String teamInitial = Util.Util.GetTeamInitialFromName(teamName);
+                
+                if(teamName.ToUpper() == "KT")
+                {
+                    teamName = "kt";
+                }
                 List<Player_W> players = new List<Player_W>();
                 for (Int32 i = 1; i < 7; ++i)
                 {

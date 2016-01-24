@@ -13,7 +13,7 @@ DROP TABLE Player;
 CREATE TABLE Player
 (
 	Id						BIGINT			NOT NULL		PRIMARY KEY	IDENTITY,
-	PlayerId				INT			NOT NULL,
+	PlayerId				INT				NOT NULL			UNIQUE,
 	Team					NVARCHAR(10)	NOT NULL,
 	BackNumber				INT				NULL,
 	Name					NVARCHAR(10)	NOT NULL,

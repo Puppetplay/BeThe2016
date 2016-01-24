@@ -13,10 +13,15 @@ namespace BeThe2016
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void btPlayer_W_Click(object sender, RoutedEventArgs e)
         {
             var manager = new Manager();
-            //manager.SelectPlayer_W();
+            manager.SelectPlayer_W();
+        }
+
+        private void btPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            var manager = new Manager();
             manager.SelectPlayer();
         }
     }
