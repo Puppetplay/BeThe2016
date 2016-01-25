@@ -53,10 +53,12 @@
     <Compile Include="Crawler\CrawlerBase.cs" />
     <Compile Include="Crawler\CrawlerPlayer.cs" />
     <Compile Include="Crawler\CrawlerPlayer_W.cs" />
+    <Compile Include="Crawler\CrawlerSchedule.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="Parser\ParserBase.cs" />
     <Compile Include="Parser\ParserPlayer.cs" />
     <Compile Include="Parser\ParserPlayer_W.cs" />
+    <Compile Include="Parser\ParserSchedule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
