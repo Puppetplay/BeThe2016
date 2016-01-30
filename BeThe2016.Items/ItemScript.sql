@@ -53,7 +53,18 @@ CREATE TABLE Schedule
 
 	Href					NVARCHAR(200)	NULL,
 	GameId					NCHAR(13)		NULL,
+	LeagueId				INT				NULL,
+	SeriesId				INT				NULL,
 	
 	Etc						NVARCHAR(1000)	NULL,
+	InsertDateTime			DATETIME		DEFAULT			CURRENT_TIMESTAMP
+);
+
+DROP TABLE Situation_W;
+CREATE TABLE Situation_W
+(
+	Id						BIGINT			NOT NULL		PRIMARY KEY	IDENTITY,
+	GameId					NCHAR(13)		NULL,
+	Content					TEXT			NOT NULL,
 	InsertDateTime			DATETIME		DEFAULT			CURRENT_TIMESTAMP
 );

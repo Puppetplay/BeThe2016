@@ -31,7 +31,7 @@ namespace BeThe2016.Worker
             }
         }
 
-        // 플레이어 얻어오기1
+        // 플레이어 얻어오기
         public void SelectPlayer()
         {
             Crawler.Manager mgr = new Crawler.Manager();
@@ -119,5 +119,24 @@ namespace BeThe2016.Worker
             }
         }
 
+        // 경기상황 불러오기
+        public void SelectSituation()
+        {
+            Crawler.Manager mgr = new Crawler.Manager();
+            try
+            {
+                var mgr.GetSituation();
+                foreach (var player_W in player_Ws)
+                {
+                    var player = mgr.GetPlayer(player_W);
+                    players.Add(player);
+                }
+                dbMgr.Save<Player>(players);
+            }
+            finally
+            {
+                mgr.Dispose();
+            }
+        }
     }
 }

@@ -18,6 +18,8 @@ namespace BeThe2016.Crawler
 
         #region Public Functions
 
+        #region Player
+
         // Player_W 정보 얻기
         public List<Player_W> GetPlayer_W(String teamName)
         {
@@ -72,6 +74,38 @@ namespace BeThe2016.Crawler
             var player = Parser.ParserPlayer.Instance.Parse(html, player_W.Team, playerId);
             return player;
         }
+
+        #endregion
+
+        #region Schedule
+
+        // 스케줄 정보 얻기
+        public List<Schedule> GetSchedule(Int32 year, Int32 month)
+        {
+            InitCromeDriver();
+            CrawlerSchedule crawler = new CrawlerSchedule(chromeDriver);
+            crawler.Init(year, month);
+            String html = null;
+            html = crawler.GetHTML();
+            return Parser.ParserShedule.Instance.Parse(html, year, month);
+        }
+
+        #endregion
+
+        #region Situation
+
+        // 경기상황 정보 얻기
+        public List<Schedule> GetSituation(Int32 year, Int32 month)
+        {
+            InitCromeDriver();
+            CrawlerSchedule crawler = new CrawlerSchedule(chromeDriver);
+            crawler.Init(year, month);
+            String html = null;
+            html = crawler.GetHTML();
+            return Parser.ParserShedule.Instance.Parse(html, year, month);
+        }
+
+        #endregion
 
         public void Dispose()
         {

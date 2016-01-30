@@ -10,6 +10,7 @@
         <Button x:Name="btPlayer_W" Content="Player_W" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.097,-1.111" Click="btPlayer_W_Click" />
         <Button x:Name="btPlayer" Content="Player" HorizontalAlignment="Left" Margin="19,35,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.097,-1.111" Click="btPlayer_Click"/>
         <Button x:Name="btSchedule" Content="Schedule" HorizontalAlignment="Left" Margin="19,60,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.097,-1.111" Click="btSchedule_Click" />
+        <Button x:Name="btSituation" Content="Situation" HorizontalAlignment="Left" Margin="19,85,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.097,-1.111" Click="btSituation_Click" />
 
     </Grid>
 </Window>

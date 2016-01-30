@@ -30,5 +30,11 @@ namespace BeThe2016
             var manager = new Manager();
             manager.SelectSchedule();
         }
+
+        private void btSituation_Click(object sender, RoutedEventArgs e)
+        {
+            var manager = new Manager();
+            manager.SelectSchedule();
+        }
     }
 }

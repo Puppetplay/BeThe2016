@@ -144,6 +144,8 @@ namespace BeThe2016.Crawler.Parser
                 try
                 {
                     schedule.GameId = schedule.Href.Split(new char[] { '&', '=' })[5];
+                    schedule.LeagueId = Convert.ToInt32(schedule.Href.Split(new char[] { '&', '=' })[1]);
+                    schedule.SeriesId = Convert.ToInt32(schedule.Href.Split(new char[] { '&', '=' })[3]);
                 }
                 catch (Exception)
                 {

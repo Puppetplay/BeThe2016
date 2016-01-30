@@ -47,6 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schedule\Schedule.cs" />
     <Compile Include="Schedule\Schedule_W.cs" />
+    <Compile Include="Situation\Situation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ItemScript.sql" />

@@ -48,6 +48,12 @@ namespace BeThe2016.Items
         public String GameId { get; set; }
 
         [Column(CanBeNull = true)]
+        public Int32? LeagueId { get; set; }
+
+        [Column(CanBeNull = true)]
+        public Int32? SeriesId { get; set; }
+
+        [Column(CanBeNull = true)]
         public String BallPark { get; set; }
 
         [Column(CanBeNull = true)]
