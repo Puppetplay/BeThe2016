@@ -104,6 +104,17 @@ namespace BeThe2016.Crawler
 
         }
 
+        // 박스스코어 정보 얻기
+        public BoxScore_W GetBoxScore_W(Schedule schedule)
+        {
+            InitCromeDriver();
+            CrawlerBoxScore crawler = new CrawlerBoxScore(chromeDriver);
+            crawler.Init(schedule);
+            String html = crawler.GetHTML();
+            return Parser.ParserBoxScore_W.Instance.Parse(schedule, html);
+
+        }
+
         #endregion
 
         public void Dispose()

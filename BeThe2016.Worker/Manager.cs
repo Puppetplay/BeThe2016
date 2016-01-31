@@ -121,7 +121,7 @@ namespace BeThe2016.Worker
         }
 
         // 경기상황 불러오기
-        public void SelectSituation()
+        public void SelectSituation_W()
         {
             Crawler.Manager mgr = new Crawler.Manager();
             try
@@ -142,7 +142,7 @@ namespace BeThe2016.Worker
                 foreach (var schedule in schedules)
                 {
                     List<Situation_W> situation_Ws = new List<Situation_W>();
-                    var situation_W = GetSituation(mgr, schedule, 5);
+                    var situation_W = GetSituation_W(mgr, schedule, 5);
                     situation_Ws.Add(situation_W);
                     dbMgr.Save<Situation_W>(situation_Ws);
                 }
@@ -153,7 +153,7 @@ namespace BeThe2016.Worker
             }
         }
 
-        private Situation_W GetSituation(Crawler.Manager mgr, Schedule schedule, Int32 lastCount)
+        private Situation_W GetSituation_W(Crawler.Manager mgr, Schedule schedule, Int32 lastCount)
         {
             if(lastCount == 0)
             {
@@ -166,21 +166,58 @@ namespace BeThe2016.Worker
             }
             catch
             {
-                return GetSituation(mgr, schedule, lastCount - 1);
+                return GetSituation_W(mgr, schedule, lastCount - 1);
             }
         }
 
-        // 경기상황 보기
-        public void View()
+        // BoxScore 불러오기
+        public void SelectBoxScore_W()
         {
-            Util.DataBaseManager dbMgr = new Util.DataBaseManager();
-            var situations = dbMgr.SelectAll<Situation_W>();
+            Crawler.Manager mgr = new Crawler.Manager();
+            try
+            {
+                Util.DataBaseManager dbMgr = new Util.DataBaseManager();
+                var schedules = from schedule in dbMgr.SelectAll<Schedule>()
+                                join boxScore in dbMgr.SelectAll<BoxScore_W>()
+                                on schedule.GameId equals boxScore.GameId into t
+                                from subBoxScore in t.DefaultIfEmpty()
+                                where schedule.LeagueId == 1 && schedule.SeriesId == 0
+                                && schedule.Href != null && subBoxScore.AwayHitter == null
+                                select schedule;
 
-            situations = from situation in situations
-                         where situation.GameId == "20130330OBSS0"
-                         select situation;
+                schedules = from schedule in schedules
+                            where schedule.Year >= 2013
+                            select schedule;
 
-            String content = situations.First().Content;
+                foreach (var schedule in schedules)
+                {
+                    List<BoxScore_W> boxScore_Ws = new List<BoxScore_W>();
+                    var situation_W = GetBoxScore_W(mgr, schedule, 5);
+                    boxScore_Ws.Add(situation_W);
+                    dbMgr.Save<BoxScore_W>(boxScore_Ws);
+                }
+            }
+            finally
+            {
+                mgr.Dispose();
+            }
+        }
+
+        private BoxScore_W GetBoxScore_W(Crawler.Manager mgr, Schedule schedule, Int32 lastCount)
+        {
+            if (lastCount == 0)
+            {
+                throw new Exception(String.Format("경기상황 얻어오기 실패, 게임아이디 {0}", schedule.GameId));
+            }
+            try
+            {
+                var boxScore_W = mgr.GetBoxScore_W(schedule);
+                return boxScore_W;
+            }
+            catch
+            {
+                return GetBoxScore_W(mgr, schedule, lastCount - 1);
+            }
         }
     }
 }

@@ -45,39 +45,5 @@ namespace BeThe2016.Crawler.Parser
         }
 
         #endregion
-
-        #region Private Functions
-
-        // Player 얻기
-        private Player CreatePlayer_FromNode(HtmlNode node)
-        {
-            String temp = node.InnerHtml;
-            try
-            {
-                return new Player
-                {
-
-                };
-            }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-
-        }
-
-        private Int32? GetBackNumber(String number)
-        {
-            Int32 temp = 0;
-            if (Int32.TryParse(number, out temp))
-            {
-                return temp;
-            }
-            else
-            {
-                return null;
-            }
-        }
-        #endregion
     }
 }
