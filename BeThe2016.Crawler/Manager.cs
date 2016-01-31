@@ -85,8 +85,7 @@ namespace BeThe2016.Crawler
             InitCromeDriver();
             CrawlerSchedule crawler = new CrawlerSchedule(chromeDriver);
             crawler.Init(year, month);
-            String html = null;
-            html = crawler.GetHTML();
+            String html = crawler.GetHTML();
             return Parser.ParserShedule.Instance.Parse(html, year, month);
         }
 
@@ -95,14 +94,14 @@ namespace BeThe2016.Crawler
         #region Situation
 
         // 경기상황 정보 얻기
-        public List<Schedule> GetSituation(Int32 year, Int32 month)
+        public Situation_W GetSituation_W(Schedule schedule)
         {
             InitCromeDriver();
-            CrawlerSchedule crawler = new CrawlerSchedule(chromeDriver);
-            crawler.Init(year, month);
-            String html = null;
-            html = crawler.GetHTML();
-            return Parser.ParserShedule.Instance.Parse(html, year, month);
+            CrawlerSituation crawler = new CrawlerSituation(chromeDriver);
+            crawler.Init(schedule);
+            String html = crawler.GetHTML();
+            return Parser.ParserSituation_W.Instance.Parse(schedule, html);
+
         }
 
         #endregion

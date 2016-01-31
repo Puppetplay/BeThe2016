@@ -1,4 +1,5 @@
 ﻿using System;
+using BeThe2016.Items;
 using OpenQA.Selenium.Chrome;
 
 namespace BeThe2016.Crawler.Crawler
@@ -7,8 +8,8 @@ namespace BeThe2016.Crawler.Crawler
     {
         #region Property & Values
 
-        private String itemGameId;
-        private Int32 itemYear;
+        private Schedule itemSchedule;
+
         private readonly String URL = "http://www.koreabaseball.com/Schedule/Game/Situation.aspx?leagueId=1&seriesId=0&gameId={0}&gyear={1}";
 
         #endregion
@@ -25,22 +26,27 @@ namespace BeThe2016.Crawler.Crawler
 
         #region public Functions
 
-        public void Init(String gameId, Int32 year)
+        public void Init(Schedule schedule)
         {
-            itemGameId = gameId;
-            itemYear = year;
+            itemSchedule = schedule;
         }
 
         public override String GetHTML()
         {
-            driver.Navigate().GoToUrl(String.Format(URL, itemGameId, itemYear));
-            Sleep(1000);
+            driver.Navigate().GoToUrl(String.Format(URL, itemSchedule.GameId, itemSchedule.Year));
+            Sleep(500);
             try
             {
-                //SetComboBox("cphContainer_cphContents_ddlYear", itemYear);
-                //Sleep(1000);
-                //SetComboBox("cphContainer_cphContents_ddlMonth", itemMonth);
-                //Sleep(2000);
+                var element = driver.FindElementById("ui-id-11");
+                element.Click();
+                Sleep(500);
+
+                var elements = driver.FindElementsByClassName("btn_detail");
+                foreach (var el in elements)
+                {
+                    el.Click();
+                    Sleep(50);
+                }
                 return driver.FindElementByXPath("//HTML").GetAttribute("outerHTML");
             }
             catch

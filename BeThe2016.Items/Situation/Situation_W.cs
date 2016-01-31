@@ -8,7 +8,7 @@ using System.Data.Linq.Mapping;
 namespace BeThe2016.Items
 {
     [Table]
-    public class Situation: DbItemBase
+    public class Situation_W: DbItemBase
     {
         // PRIMARY KEY	IDENTITY
         [Column(AutoSync = AutoSync.OnInsert, IsDbGenerated = true, IsPrimaryKey = true, CanBeNull = false)]

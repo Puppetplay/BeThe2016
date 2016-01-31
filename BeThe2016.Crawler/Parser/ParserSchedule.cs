@@ -118,6 +118,7 @@ namespace BeThe2016.Crawler.Parser
                 Year = schedule_W.Year,
                 Month = schedule_W.Month,
                 Day = schedule_W.Day,
+                BallPark = schedule_W.BallPark,
                 Etc = schedule_W.Etc
             };
 

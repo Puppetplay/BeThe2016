@@ -60,6 +60,7 @@
     <Compile Include="Parser\ParserPlayer.cs" />
     <Compile Include="Parser\ParserPlayer_W.cs" />
     <Compile Include="Parser\ParserSchedule.cs" />
+    <Compile Include="Parser\ParserSituation_W.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
