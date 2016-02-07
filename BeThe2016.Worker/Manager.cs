@@ -9,6 +9,8 @@ namespace BeThe2016.Worker
 {
     public class Manager
     {
+        #region Crawler
+
         // 플레이어 리스트 얻어오기
         public void SelectPlayer_W()
         {
@@ -219,5 +221,36 @@ namespace BeThe2016.Worker
                 return GetBoxScore_W(mgr, schedule, lastCount - 1);
             }
         }
+
+        #endregion
+
+        #region Maker
+
+        // Match Data 만들기
+        private void MakeMatch()
+        {
+            Crawler.Manager mgr = new Crawler.Manager();
+            try
+            {
+                Util.DataBaseManager dbMgr = new Util.DataBaseManager();
+                dbMgr.DataContext.ExecuteCommand("TRUNCATE TABLE PLAYER", new Object[] { });
+
+                var player_Ws = dbMgr.SelectAll<Player_W>();
+
+                List<Player> players = new List<Player>();
+                for (Int32 i = 0; i < player_Ws.Count();)
+                    foreach (var player_W in player_Ws)
+                    {
+                        var player = mgr.GetPlayer(player_W);
+                        players.Add(player);
+                    }
+                dbMgr.Save<Player>(players);
+            }
+            finally
+            {
+                mgr.Dispose();
+            }
+        }
+        #endregion
     }
 }

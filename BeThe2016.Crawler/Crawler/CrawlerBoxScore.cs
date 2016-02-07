@@ -10,7 +10,8 @@ namespace BeThe2016.Crawler.Crawler
 
         private Schedule itemSchedule;
 
-        private readonly String URL = "http://www.koreabaseball.com/Schedule/Game/BoxScore.aspx?leagueId=1&seriesId=0&gameId={0}&gyear={1}";
+        private readonly String URL = "http://sports.news.naver.com/gameCenter/gameRecord.nhn?gameId={0}&category=kbo";
+
         #endregion
 
         #region Constructor
@@ -32,7 +33,7 @@ namespace BeThe2016.Crawler.Crawler
 
         public override String GetHTML()
         {
-            driver.Navigate().GoToUrl(String.Format(URL, itemSchedule.GameId, itemSchedule.Year));
+            driver.Navigate().GoToUrl(String.Format(URL, itemSchedule.GameId));
             Sleep(1000);
             try
             {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeThe2016", "BeThe2016\BeThe2016.csproj", "{021669A9-E0F1-46B8-A43D-1E552FA429AF}"
 EndProject
@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LIB", "LIB", "{7205BF3C-8A0
 		LIB\WebDriver.dll = LIB\WebDriver.dll
 		LIB\WebDriver.Support.dll = LIB\WebDriver.Support.dll
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeThe2016.DataMaker", "BeThe2016.DataMaker\BeThe2016.DataMaker.csproj", "{5AA393B7-FF16-4D3A-B3BE-C7AEB25070F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{3B11E5C4-168D-44E8-8996-F30311E51CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B11E5C4-168D-44E8-8996-F30311E51CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B11E5C4-168D-44E8-8996-F30311E51CFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AA393B7-FF16-4D3A-B3BE-C7AEB25070F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AA393B7-FF16-4D3A-B3BE-C7AEB25070F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AA393B7-FF16-4D3A-B3BE-C7AEB25070F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AA393B7-FF16-4D3A-B3BE-C7AEB25070F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

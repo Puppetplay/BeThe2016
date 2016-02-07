@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5BCE3704-4C7A-4DDD-ABD8-27BA879DC02B}</ProjectGuid>
+    <ProjectGuid>{5AA393B7-FF16-4D3A-B3BE-C7AEB25070F3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BeThe2016.Items</RootNamespace>
-    <AssemblyName>BeThe2016.Items</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>BeThe2016.DataMaker</RootNamespace>
+    <AssemblyName>BeThe2016.DataMaker</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,7 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,21 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoxScore\BoxScore_W.cs" />
-    <Compile Include="DbItemBase.cs" />
-    <Compile Include="Game\Th.cs" />
-    <Compile Include="Player\Player.cs" />
-    <Compile Include="Player\Player_W.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Schedule\Schedule.cs" />
-    <Compile Include="Schedule\Schedule_W.cs" />
-    <Compile Include="Game\Ball.cs" />
-    <Compile Include="Game\Bat.cs" />
-    <Compile Include="Game\Match.cs" />
-    <Compile Include="Situation\Situation_W.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ItemScript.sql" />
+    <ProjectReference Include="..\BeThe2016.Items\BeThe2016.Items.csproj">
+      <Project>{5bce3704-4c7a-4ddd-abd8-27ba879dc02b}</Project>
+      <Name>BeThe2016.Items</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

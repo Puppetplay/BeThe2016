@@ -36,14 +36,14 @@ namespace BeThe2016.Crawler.Parser
         {
             HtmlDocument doc = new HtmlDocument();
             doc.LoadHtml(html);
-            var elements = doc.DocumentNode.SelectNodes("//table[@id='xtable1']");
+            var elements = doc.DocumentNode.SelectNodes("//table[@summary='타자기록']");
 
             BoxScore_W boxScore_W = new BoxScore_W();
             boxScore_W.GameId = schedule.GameId;
             boxScore_W.AwayHitter = elements[0].OuterHtml;
             boxScore_W.HomeHitter = elements[1].OuterHtml;
 
-            elements = doc.DocumentNode.SelectNodes("//table[@id='xtable3']");
+            elements = doc.DocumentNode.SelectNodes("//table[@summary='투수기록']");
             boxScore_W.AwayPitcher = elements[0].OuterHtml;
             boxScore_W.HomePitcher = elements[1].OuterHtml;
 
