@@ -227,28 +227,113 @@ namespace BeThe2016.Worker
         #region Maker
 
         // Match Data 만들기
-        private void MakeMatch()
+        public void MakeMatch()
         {
-            Crawler.Manager mgr = new Crawler.Manager();
+            DataMaker.Manager mgr = new DataMaker.Manager();
             try
             {
                 Util.DataBaseManager dbMgr = new Util.DataBaseManager();
-                dbMgr.DataContext.ExecuteCommand("TRUNCATE TABLE PLAYER", new Object[] { });
+                var schedules = from schedule in dbMgr.SelectAll<Schedule>()
+                                join match in dbMgr.SelectAll<Match>()
+                                on schedule.GameId equals match.GameId into t
+                                from subMatch in t.DefaultIfEmpty()
+                                where schedule.LeagueId == 1 && schedule.SeriesId == 0
+                                && schedule.Href != null && subMatch.GameId == null
+                                select schedule;
 
-                var player_Ws = dbMgr.SelectAll<Player_W>();
+                schedules = from schedule in schedules
+                            where schedule.Year >= 2013
+                            select schedule;
 
-                List<Player> players = new List<Player>();
-                for (Int32 i = 0; i < player_Ws.Count();)
-                    foreach (var player_W in player_Ws)
+                //schedules = from schedule in dbMgr.SelectAll<Schedule>()
+                //            where schedule.GameId == "20150902LGWO0"
+                //            select schedule;
+
+
+                foreach (var schedule in schedules)
+                {
+                    dbMgr = new Util.DataBaseManager();
+                    var situation = (from s in dbMgr.SelectAll<Situation_W>()
+                                     where s.GameId == schedule.GameId
+                                     select s).First();
+
+                    var boxScore = (from b in dbMgr.SelectAll<BoxScore_W>()
+                                    where b.GameId == schedule.GameId
+                                    select b).First();
+
+                    var match = mgr.MakeMatch(situation, boxScore);
+
+                    // Match 저장
+                    List<Match> matchs = new List<Match>();
+                    matchs.Add(match);
+                    dbMgr.Save<Match>(matchs);
+
+                    // Th 저장
+                    List<Th> ths = new List<Th>();
+                    foreach (var th in match.Ths)
                     {
-                        var player = mgr.GetPlayer(player_W);
-                        players.Add(player);
+                        th.MatchId = match.Id;
+                        ths.Add(th);
                     }
-                dbMgr.Save<Player>(players);
+                    dbMgr.Save<Th>(ths);
+
+                    // Bat 저장
+                    List<Bat> bats = new List<Bat>();
+                    foreach (var th in match.Ths)
+                    {
+                        if (th.AwayBats != null)
+                        {
+                            foreach (var bat in th.AwayBats)
+                            {
+                                bat.ThId = th.Id;
+                                bats.Add(bat);
+                            }
+                        }
+
+                        if (th.HomeBats != null)
+                        {
+                            foreach (var bat in th.HomeBats)
+                            {
+                                bat.ThId = th.Id;
+                                bats.Add(bat);
+                            }
+                        }
+                    }
+                    dbMgr.Save<Bat>(bats);
+
+                    // Ball 저장
+                    List<Ball> balls = new List<Ball>();
+                    foreach (var th in match.Ths)
+                    {
+                        if (th.AwayBats != null)
+                        {
+                            foreach (var bat in th.AwayBats)
+                            {
+                                foreach (var ball in bat.Balls)
+                                {
+                                    ball.BatId = bat.Id;
+                                    balls.Add(ball);
+                                }
+                            }
+                        }
+
+                        if (th.HomeBats != null)
+                        {
+                            foreach (var bat in th.HomeBats)
+                            {
+                                foreach (var ball in bat.Balls)
+                                {
+                                    ball.BatId = bat.Id;
+                                    balls.Add(ball);
+                                }
+                            }
+                        }
+                    }
+                    dbMgr.Save<Ball>(balls);
+                }
             }
             finally
             {
-                mgr.Dispose();
             }
         }
         #endregion

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using BeThe2016.Worker;
+using System;
 
 namespace BeThe2016
 {
@@ -41,6 +42,19 @@ namespace BeThe2016
         {
             var manager = new Manager();
             manager.SelectBoxScore_W();
+        }
+
+        private void btMatch_Click(object sender, RoutedEventArgs e)
+        {
+            double D = 0.9;
+            for(Int32 i = 0; i < 49; ++i)
+            {
+                D = D * 0.9;
+            }
+            MessageBox.Show(D.ToString());
+            return;
+            var manager = new Manager();
+            manager.MakeMatch();
         }
     }
 }

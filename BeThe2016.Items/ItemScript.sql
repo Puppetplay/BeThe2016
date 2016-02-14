@@ -86,8 +86,8 @@ CREATE TABLE Ball
 (
 	Id						BIGINT			NOT NULL		PRIMARY KEY	IDENTITY,
 	BatId					BIGINT			NOT NULL,
-	Number					INT				NOT NULL,
-	Speed					INT				NOT NULL,	
+	Number					INT				NULL,
+	Speed					INT				NULL,	
 	BallType				NCHAR(10)		NOT NULL,
 	Result					NCHAR(10)		NOT NULL,
 	BallCount				NCHAR(3)		NOT NULL,
@@ -102,7 +102,9 @@ CREATE TABLE Bat
 	ThId					BIGINT			NOT NULL,
 	PitcherId				INT				NOT NULL,
 	HitterId				INT				NOT NULL,	
-	Result					NVARCHAR(50)	NOT NULL,
+	Result					NCHAR(10)		NOT NULL,
+	DetailResult			NVARCHAR(100)	NOT NULL,
+	PResult					INT				NOT NULL,
 	InsertDateTime			DATETIME		DEFAULT			CURRENT_TIMESTAMP
 );
 
@@ -110,8 +112,7 @@ DROP TABLE Th
 CREATE TABLE Th
 (
 	Id						BIGINT			NOT NULL		PRIMARY KEY	IDENTITY,
-	MathId					BIGINT			NOT NULL,
-	ThType					INT				NOT NULL,
+	MatchId					BIGINT			NOT NULL,
 	Number					INT				NOT NULL,	
 	InsertDateTime			DATETIME		DEFAULT			CURRENT_TIMESTAMP
 );

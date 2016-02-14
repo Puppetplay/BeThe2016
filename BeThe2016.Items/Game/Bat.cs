@@ -28,7 +28,21 @@ namespace BeThe2016.Items
         [Column(CanBeNull = false)]
         public String Result { get; set; }
 
+        [Column(CanBeNull = false)]
+        public String DetailResult { get; set; }
+
+        [Column(CanBeNull = false)]
+        public PResultType PResult { get; set; }
+
         public List<Ball> Balls { get; set; }
+    }
+
+    public enum PResultType
+    {
+        NotDefine,
+        Hit,
+        Out,
+        Pass
     }
 }
 

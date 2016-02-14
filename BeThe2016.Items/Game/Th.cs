@@ -17,22 +17,14 @@ namespace BeThe2016.Items
 
         // MathId
         [Column(CanBeNull = false)]
-        public Int64 MathId { get; set; }
-
-        [Column(CanBeNull = false)]
-        public ThType Type { get; set; }
+        public Int64 MatchId { get; set; }
 
         [Column(CanBeNull = false)]
         public Int32 Number { get; set; }
 
-        public List<Bat> Bats { get; set; }
-    }
+        public List<Bat> AwayBats { get; set; }
 
-    public enum ThType
-    {
-        Notdefine,
-        초,
-        말
+        public List<Bat> HomeBats { get; set; }
     }
 }
 

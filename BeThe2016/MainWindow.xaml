@@ -12,6 +12,7 @@
         <Button x:Name="btSchedule" Content="Schedule" HorizontalAlignment="Left" Margin="19,60,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.097,-1.111" Click="btSchedule_Click" />
         <Button x:Name="btSituation" Content="Situation" HorizontalAlignment="Left" Margin="19,85,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.097,-1.111" Click="btSituation_Click" />
         <Button x:Name="btBoxScore" Content="BoxScore" HorizontalAlignment="Left" Margin="19,110,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.097,-1.111" Click="btBoxScore_Click" />
+        <Button x:Name="btMatch" Content="Match" HorizontalAlignment="Left" Margin="19,135,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.097,-1.111" Click="btMatch_Click" />
 
     </Grid>
 </Window>

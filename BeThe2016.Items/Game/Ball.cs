@@ -19,10 +19,10 @@ namespace BeThe2016.Items
         public Int64 BatId { get; set; }
 
         [Column(CanBeNull = false)]
-        public Int32 Number { get; set; }
+        public Int32? Number { get; set; }
 
-        [Column(CanBeNull = false)]
-        public Int32 Speed { get; set; }
+        [Column(CanBeNull = true)]
+        public Int32? Speed { get; set; }
 
         [Column(CanBeNull = false)]
         public String BallType { get; set; }

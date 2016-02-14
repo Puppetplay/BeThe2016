@@ -57,6 +57,10 @@
       <Project>{3b11e5c4-168d-44e8-8996-f30311e51cfb}</Project>
       <Name>BeThe2016.Crawler</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BeThe2016.DataMaker\BeThe2016.DataMaker.csproj">
+      <Project>{d556e44d-21ca-4b49-8df8-812852328416}</Project>
+      <Name>BeThe2016.DataMaker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BeThe2016.Items\BeThe2016.Items.csproj">
       <Project>{5bce3704-4c7a-4ddd-abd8-27ba879dc02b}</Project>
       <Name>BeThe2016.Items</Name>
