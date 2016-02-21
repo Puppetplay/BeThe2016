@@ -46,13 +46,6 @@ namespace BeThe2016
 
         private void btMatch_Click(object sender, RoutedEventArgs e)
         {
-            double D = 0.9;
-            for(Int32 i = 0; i < 49; ++i)
-            {
-                D = D * 0.9;
-            }
-            MessageBox.Show(D.ToString());
-            return;
             var manager = new Manager();
             manager.MakeMatch();
         }
