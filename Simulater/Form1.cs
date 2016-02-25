@@ -148,25 +148,76 @@ namespace Simulater
                                    && ph.Hand.Substring(2, 2) == batter.Hand.Substring(2, 2) 
                                select b;
 
-            var pitcherBatsG = from p in pitcherBats
+            // 투수 확률
+            var resultPitcher = from p in pitcherBats
                                group p by p.PitcherId into g
                                select new
                                {
                                    HitCount = g.Sum(x => x.PResult == PResultType.Hit ? 1 : 0),
                                    TotalCount = g.Sum(x => 1),
-                                   Ratio = Math.Round(g.Sum(x => x.PResult == PResultType.Hit ? 1 : 0) * 1.0m 
+                                   Ratio = Math.Round(g.Sum(x => x.PResult == PResultType.Hit ? 1 : 0) * 1.0
                                    / g.Sum(x => 1), 3, MidpointRounding.AwayFromZero)
                                };
 
+            var batterBats = from m in matchs
+                              join s in schedules
+                              on m.GameId equals s.GameId
+                              join t in ths
+                              on m.Id equals t.MatchId
+                              join b in bats
+                              on t.Id equals b.ThId
+                              join pp in players
+                              on b.PitcherId equals pp.PlayerId
+                              where b.HitterId == batter.PlayerId
+                                   && pp.Hand.Substring(0, 2) == pitcher.Hand.Substring(0, 2)
+                              select b;
 
-            dgBat.DataSource = pitcherBats;
+            // 타자 확률
+            var resultBatter = from p in batterBats
+                               group p by p.HitterId into g
+                               select new
+                               {
+                                   HitCount = g.Sum(x => x.PResult == PResultType.Hit ? 1 : 0),
+                                   TotalCount = g.Sum(x => 1),
+                                   Ratio = Math.Round(g.Sum(x => x.PResult == PResultType.Hit ? 1 : 0) * 1.0
+                                   / g.Sum(x => 1), 3, MidpointRounding.AwayFromZero)
+                               };
+            dgBat.DataSource = resultBatter;
 
-            return 0.0;
+            Int32 분모 = 0;
+            double 분자 = 0;
+            if(resultPitcher.Count() > 0)
+            {
+                if(resultPitcher.First().TotalCount > 50)
+                {
+                    분모++;
+                    분자 += resultPitcher.First().Ratio;
+                }
+            }
+
+            if (resultBatter.Count() > 0)
+            {
+                if (resultBatter.First().TotalCount > 50)
+                {
+                    분모++;
+                    분자 += resultBatter.First().Ratio;
+                }
+            }
+
+            if(분모 == 1)
+            {
+                return (분자 / 분모) * 0.95;
+            }
+            else if(분모 == 2)
+            {
+                return (분자 / 분모);
+            }
+            return 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var ratio = CalcRatio(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text));
+            
         }
     }
 }
