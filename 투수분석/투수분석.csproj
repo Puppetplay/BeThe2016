@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{88921C44-B359-4241-8578-872D61A44672}</ProjectGuid>
+    <ProjectGuid>{B5A51C81-FA2C-4543-9F0E-B3D507A82988}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simulater</RootNamespace>
-    <AssemblyName>Simulater</AssemblyName>
+    <RootNamespace>투수분석</RootNamespace>
+    <AssemblyName>투수분석</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BeTheResult.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
