@@ -49,5 +49,11 @@ namespace BeThe2016
             var manager = new Manager();
             manager.MakeMatch();
         }
+
+        private void btLineUp_Click(object sender, RoutedEventArgs e)
+        {
+            var manager = new Manager();
+            manager.MakeLineUp();
+        }
     }
 }

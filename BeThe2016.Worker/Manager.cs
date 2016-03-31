@@ -336,6 +336,35 @@ namespace BeThe2016.Worker
             {
             }
         }
+
+        // LineUp 만들기
+        public void MakeLineUp()
+        {
+            DataMaker.Manager mgr = new DataMaker.Manager();
+            try
+            {
+                Util.DataBaseManager dbMgr = new Util.DataBaseManager();
+
+                var matches = from match in dbMgr.SelectAll<Match>()
+                              join lineUp in dbMgr.SelectAll<LineUp>()
+                              on match.Id equals lineUp.Id into t
+                              from subLineUp in t.DefaultIfEmpty()
+                              where subLineUp == null
+                              select match;
+                            
+                foreach(var match in matches)
+                {
+                    var boxScore = (from b in dbMgr.SelectAll<BoxScore_W>()
+                                    where b.GameId == match.GameId
+                                    select b).First();
+                    var lineUps = mgr.MakeLineUp(match.Id, boxScore);
+                    dbMgr.Save<LineUp>(lineUps);
+                }
+            }
+            finally
+            {
+            }
+        }
         #endregion
     }
 }
