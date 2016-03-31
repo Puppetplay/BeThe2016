@@ -124,3 +124,50 @@ CREATE TABLE Match
 	GameId					NCHAR(13)		NOT NULL,
 	InsertDateTime			DATETIME		DEFAULT			CURRENT_TIMESTAMP
 );
+
+DROP TABLE LineUp
+CREATE TABLE LineUp
+(
+	Id						BIGINT			NOT NULL		PRIMARY KEY	IDENTITY,
+	MatchId					BIGINT			NOT NULL,
+	AttackType				INT				NOT NULL,
+	PlayerId				INT				NOT NULL,
+	BatNumber				INT				NOT NULL,	
+	EntryType				INT				NOT NULL,
+	InsertDateTime			DATETIME		DEFAULT			CURRENT_TIMESTAMP
+);
+
+DROP TABLE PickResult
+CREATE TABLE PickResult
+(
+	Id						BIGINT			NOT NULL		PRIMARY KEY	IDENTITY,
+	GameDate				CHAR(8)			NOT NULL,
+	MatchId					BIGINT			NOT NULL,
+	PlayerId				INT				NOT NULL,
+	InsertDateTime			DATETIME		DEFAULT			CURRENT_TIMESTAMP
+);
+
+DROP TABLE Member 
+CREATE TABLE Member
+(
+	Id						BIGINT			NOT NULL		PRIMARY KEY	IDENTITY,
+	Name					NVARCHAR(10)	NOT NULL,
+	KakaoName				NVARCHAR(20)	NOT NULL,
+	Enable					INT				NOT NULL,
+	InsertDateTime			DATETIME		DEFAULT			CURRENT_TIMESTAMP
+);
+
+DROP TABLE LegendScore 
+CREATE TABLE LegendScore
+(
+	Id						BIGINT			NOT NULL		PRIMARY KEY	IDENTITY,
+	BatCount				INT				NOT NULL,
+	ChangeRatio				Double			NOT NULL,
+	VsRatio					Double			NOT NULL,
+	PitcherOfBatterTypeRatio				Double			NOT NULL,
+	PitcherTypeRatio					Double			NOT NULL,
+	HitRatio				Double			NOT NULL,
+	HopeBatCount			INT			NOT NULL,
+	InsertDateTime			DATETIME		DEFAULT			CURRENT_TIMESTAMP
+);
+

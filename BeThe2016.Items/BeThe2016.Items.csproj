@@ -44,6 +44,9 @@
     <Compile Include="BoxScore\BoxScore_W.cs" />
     <Compile Include="DbItemBase.cs" />
     <Compile Include="Game\Th.cs" />
+    <Compile Include="LineUp\LineUp.cs" />
+    <Compile Include="Operate\LegendScore.cs" />
+    <Compile Include="Operate\Member.cs" />
     <Compile Include="Player\Player.cs" />
     <Compile Include="Player\Player_W.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,6 +55,8 @@
     <Compile Include="Game\Ball.cs" />
     <Compile Include="Game\Bat.cs" />
     <Compile Include="Game\Match.cs" />
+    <Compile Include="Simulater\Id.cs" />
+    <Compile Include="Simulater\PickResult.cs" />
     <Compile Include="Situation\Situation_W.cs" />
   </ItemGroup>
   <ItemGroup>
