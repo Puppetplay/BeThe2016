@@ -49,5 +49,23 @@ namespace 관리툴
         }
 
         #endregion
+
+        private void bt_선수찾기_Click(object sender, EventArgs e)
+        {
+            Form선수찾기 form = new Form선수찾기();
+            form.Show();
+        }
+
+        private void bt_엔트리등록_Click(object sender, EventArgs e)
+        {
+            Form엔트리등록 form = new Form엔트리등록();
+            form.Show();
+        }
+
+        private void bt분석_Click(object sender, EventArgs e)
+        {
+            Form분석 form = new Form분석();
+            form.Show();
+        }
     }
 }

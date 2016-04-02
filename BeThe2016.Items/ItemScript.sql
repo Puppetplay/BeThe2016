@@ -161,13 +161,37 @@ DROP TABLE LegendScore
 CREATE TABLE LegendScore
 (
 	Id						BIGINT			NOT NULL		PRIMARY KEY	IDENTITY,
+	PlayerId				INT				NOT NULL,
+	PlayerName					NVARCHAR(10)	NOT NULL,
 	BatCount				INT				NOT NULL,
-	ChangeRatio				Double			NOT NULL,
-	VsRatio					Double			NOT NULL,
-	PitcherOfBatterTypeRatio				Double			NOT NULL,
-	PitcherTypeRatio					Double			NOT NULL,
-	HitRatio				Double			NOT NULL,
+	ChangeRatio				float 			NOT NULL,
+	VsRatio					float 			NOT NULL,
+	PitcherOfBatterTypeRatio				float 			NOT NULL,
+	PitcherTypeRatio					float 			NOT NULL,
+	HitRatio				float 			NOT NULL,
 	HopeBatCount			INT			NOT NULL,
+	InsertDateTime			DATETIME		DEFAULT			CURRENT_TIMESTAMP
+);
+
+DROP TABLE Entry 
+CREATE TABLE Entry
+(
+	Id						BIGINT			NOT NULL		PRIMARY KEY	IDENTITY,
+	Year					INTEGER			NOT NULL,
+	Month					INTEGER			NOT NULL,
+	Day						INTEGER			NOT NULL,
+
+	HomeTeam				NVARCHAR(10)	NOT NULL,
+	AwayTeam				NVARCHAR(10)	NOT NULL,
+
+	PlayerId				INT				NOT NULL,
+	PlayerName					NVARCHAR(10)	NOT NULL,
+
+	PitcherId 				INT				NOT NULL,
+	PitcherName 			NVARCHAR(10)	NOT NULL,
+
+	BatNumber				INT				NOT NULL,
+
 	InsertDateTime			DATETIME		DEFAULT			CURRENT_TIMESTAMP
 );
 

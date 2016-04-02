@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.bt_회원등록 = new System.Windows.Forms.Button();
+            this.bt_선수찾기 = new System.Windows.Forms.Button();
+            this.bt_엔트리등록 = new System.Windows.Forms.Button();
+            this.bt분석 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bt_회원등록
@@ -42,13 +45,49 @@
             this.bt_회원등록.UseVisualStyleBackColor = true;
             this.bt_회원등록.Click += new System.EventHandler(this.bt_회원등록_Click);
             // 
-            // Form1
+            // bt_선수찾기
+            // 
+            this.bt_선수찾기.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_선수찾기.Location = new System.Drawing.Point(10, 60);
+            this.bt_선수찾기.Name = "bt_선수찾기";
+            this.bt_선수찾기.Size = new System.Drawing.Size(459, 50);
+            this.bt_선수찾기.TabIndex = 1;
+            this.bt_선수찾기.Text = "선수찾기";
+            this.bt_선수찾기.UseVisualStyleBackColor = true;
+            this.bt_선수찾기.Click += new System.EventHandler(this.bt_선수찾기_Click);
+            // 
+            // bt_엔트리등록
+            // 
+            this.bt_엔트리등록.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt_엔트리등록.Location = new System.Drawing.Point(10, 110);
+            this.bt_엔트리등록.Name = "bt_엔트리등록";
+            this.bt_엔트리등록.Size = new System.Drawing.Size(459, 50);
+            this.bt_엔트리등록.TabIndex = 2;
+            this.bt_엔트리등록.Text = "엔트리등록";
+            this.bt_엔트리등록.UseVisualStyleBackColor = true;
+            this.bt_엔트리등록.Click += new System.EventHandler(this.bt_엔트리등록_Click);
+            // 
+            // bt분석
+            // 
+            this.bt분석.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bt분석.Location = new System.Drawing.Point(10, 160);
+            this.bt분석.Name = "bt분석";
+            this.bt분석.Size = new System.Drawing.Size(459, 50);
+            this.bt분석.TabIndex = 3;
+            this.bt분석.Text = "분석";
+            this.bt분석.UseVisualStyleBackColor = true;
+            this.bt분석.Click += new System.EventHandler(this.bt분석_Click);
+            // 
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 404);
+            this.Controls.Add(this.bt분석);
+            this.Controls.Add(this.bt_엔트리등록);
+            this.Controls.Add(this.bt_선수찾기);
             this.Controls.Add(this.bt_회원등록);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "BeThe 관리툴";
             this.ResumeLayout(false);
@@ -58,6 +97,9 @@
         #endregion
 
         private System.Windows.Forms.Button bt_회원등록;
+        private System.Windows.Forms.Button bt_선수찾기;
+        private System.Windows.Forms.Button bt_엔트리등록;
+        private System.Windows.Forms.Button bt분석;
     }
 }
 

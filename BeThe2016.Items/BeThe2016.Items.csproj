@@ -45,6 +45,7 @@
     <Compile Include="DbItemBase.cs" />
     <Compile Include="Game\Th.cs" />
     <Compile Include="LineUp\LineUp.cs" />
+    <Compile Include="Operate\Entry.cs" />
     <Compile Include="Operate\LegendScore.cs" />
     <Compile Include="Operate\Member.cs" />
     <Compile Include="Player\Player.cs" />

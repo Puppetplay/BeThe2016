@@ -52,6 +52,24 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form분석.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form분석.Designer.cs">
+      <DependentUpon>Form분석.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form선수찾기.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form선수찾기.Designer.cs">
+      <DependentUpon>Form선수찾기.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form엔트리등록.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form엔트리등록.Designer.cs">
+      <DependentUpon>Form엔트리등록.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form회원등록.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +80,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form분석.resx">
+      <DependentUpon>Form분석.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form선수찾기.resx">
+      <DependentUpon>Form선수찾기.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form엔트리등록.resx">
+      <DependentUpon>Form엔트리등록.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form회원등록.resx">
       <DependentUpon>Form회원등록.cs</DependentUpon>

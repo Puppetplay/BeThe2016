@@ -6,7 +6,7 @@ using System;
 using System.Data.Linq.Mapping;
 
 
-namespace BeThe2016.Items.Operate
+namespace BeThe2016.Items
 {
     [Table]
     public class LegendScore : DbItemBase
@@ -15,6 +15,12 @@ namespace BeThe2016.Items.Operate
         [Column(AutoSync = AutoSync.OnInsert, IsDbGenerated = true, IsPrimaryKey = true, CanBeNull = false)]
         public override Int64 Id { get; set; }
 
+        [Column(CanBeNull = false)]
+        public Int32 PlayerId { get; set; }
+
+        [Column(CanBeNull = false)]
+        public String PlayerName { get; set; }
+
         // 타수
         [Column(CanBeNull = false)]
         public Int32 BatCount { get; set; }
@@ -22,6 +28,10 @@ namespace BeThe2016.Items.Operate
         // 교체확률
         [Column(CanBeNull = false)]
         public Double ChangeRatio { get; set; }
+
+        // 상대전적
+        [Column(CanBeNull = false)]
+        public Int32 VsCount { get; set; }
 
         // 상대전적
         [Column(CanBeNull = false)]
